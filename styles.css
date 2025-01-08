@@ -57,6 +57,30 @@ main {
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    nav button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    nav button:hover {
+        background-color: #555;
+    }
+
+    nav ul.show {
+        display: block;
+    }
+}
+
 
 /* Section Styling */
 section {

@@ -23,6 +23,35 @@
     </header>
 
     <main id="content">
+        <section id="slideshow">
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="alex1.jpg" alt="Image 1">
+            <div class="caption">Alexander Township's Vibrant Culture</div>
+        </div>
+
+        <div class="slide fade">
+            <img src="alex2.jpg" alt="Image 2">
+            <div class="caption">Historical Nelson Mandela Yard</div>
+        </div>
+
+        <div class="slide fade">
+            <img src="alex3.jpg" alt="Image 3">
+            <div class="caption">Beautiful Community Art</div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Dots for navigation -->
+    <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</section>
         <!-- About Section -->
         <section id="about">
             <h2>About Alexander Township</h2>

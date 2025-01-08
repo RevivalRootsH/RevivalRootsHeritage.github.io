@@ -1,31 +1,20 @@
-[
-  {
-    "name": "Zulu",
-    "description": "The Zulu are the largest ethnic group in South Africa...",
-    "images": [
-      {"url": "assets/images/zulu1.jpg", "alt": "Zulu dancers"},
-      {"url": "assets/images/zulu2.jpg", "alt": "Zulu beadwork"}
-    ],
-    "audio": [
-        {"url": "assets/audio/isizulu.mp3", "title": "IsiZulu Phrases"}
-      ],
-    "customs": [
-      {"name": "Umhlanga (Reed Dance)", "description": "A traditional ceremony..."}
-    ]
-  },
-  {
-    "name": "Xhosa",
-    "description": "The Xhosa people are known for...",
-    "images": [
-        {"url": "assets/images/xhosa1.jpg", "alt": "Xhosa attire"},
-        {"url": "assets/images/xhosa2.jpg", "alt": "Xhosa homestead"}
-      ],
-    "audio": [
-        {"url": "assets/audio/isixhosa.mp3", "title": "IsiXhosa Greetings"}
-      ],
-    "customs": [
-      {"name": "Intonjane (Initiation Ceremony)", "description": "A rite of passage..."}
-    ]
-  }
-  // Add more cultures here...
-]
+{
+    "Alexandra": {
+        "history": "Established in 1912, Alexandra Township played a significant role in the fight against apartheid.",
+        "notableFigures": ["Nelson Mandela", "Hugh Masekela"],
+        "attractions": [
+            "Mandela Yard",
+            "Alexandra Heritage Centre",
+            "Alexandra Township Art Scene",
+            "Gumede Park"
+        ]
+    },
+    "Zulu": {
+        "description": "The Zulu culture is renowned for its vibrant dances, traditional attire, and beadwork.",
+        "events": ["Reed Dance", "Shaka Day Celebrations"]
+    },
+    "Xhosa": {
+        "description": "The Xhosa people are known for their rich oral storytelling traditions and traditional rites of passage.",
+        "notableFigures": ["Nelson Mandela", "Thabo Mbeki"]
+    }
+}

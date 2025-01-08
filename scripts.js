@@ -1,5 +1,5 @@
-// Load JSON data and display content dynamically
 document.addEventListener("DOMContentLoaded", () => {
+    // Load JSON data dynamically
     fetch('cultures.json')
         .then(response => response.json())
         .then(data => {
@@ -24,50 +24,51 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         })
         .catch(error => console.error('Error loading JSON:', error));
+
+    // Responsive navigation toggle
+    const navToggle = document.querySelector('nav ul');
+    if (window.innerWidth < 768) {
+        navToggle.style.display = 'none';
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'Menu';
+        toggleButton.style.marginBottom = '10px';
+        document.querySelector('header').appendChild(toggleButton);
+
+        toggleButton.addEventListener('click', () => {
+            navToggle.style.display = navToggle.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+
+    // Slideshow initialization
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail dot controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let slides = document.querySelectorAll(".slide");
+        let dots = document.querySelectorAll(".dot");
+
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+
+        slides.forEach(slide => slide.style.display = "none");
+        dots.forEach(dot => dot.className = dot.className.replace(" active", ""));
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    // Auto-play functionality
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000); // Change slide every 5 seconds
 });
-
-// Responsive navigation toggle
-const navToggle = document.querySelector('nav ul');
-if (window.innerWidth < 768) {
-    navToggle.style.display = 'none';
-    const toggleButton = document.createElement('button');
-    toggleButton.textContent = 'Menu';
-    toggleButton.style.marginBottom = '10px';
-    document.querySelector('header').appendChild(toggleButton);
-
-    toggleButton.addEventListener('click', () => {
-        navToggle.style.display = navToggle.style.display === 'none' ? 'block' : 'none';
-    });
-}
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function changeSlide(n) {
-    showSlides(slideIndex += n);
-}
-
-// Thumbnail dot controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let slides = document.querySelectorAll(".slide");
-    let dots = document.querySelectorAll(".dot");
-
-    if (n > slides.length) { slideIndex = 1; }
-    if (n < 1) { slideIndex = slides.length; }
-
-    slides.forEach(slide => slide.style.display = "none");
-    dots.forEach(dot => dot.className = dot.className.replace(" active", ""));
-
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-}
-
-// Auto-play functionality
-setInterval(() => {
-    changeSlide(1);
-}, 5000); // Change slide every 5 seconds

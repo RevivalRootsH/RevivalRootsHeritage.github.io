@@ -53,22 +53,39 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlides(slideIndex = n);
     }
 
-    function showSlides(n) {
-        let slides = document.querySelectorAll(".slide");
-        let dots = document.querySelectorAll(".dot");
-
-        if (n > slides.length) { slideIndex = 1; }
-        if (n < 1) { slideIndex = slides.length; }
-
-        slides.forEach(slide => slide.style.display = "none");
-        dots.forEach(dot => dot.className = dot.className.replace(" active", ""));
-
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
+    
 
     // Auto-play functionality
     setInterval(() => {
         changeSlide(1);
     }, 5000); // Change slide every 5 seconds
 });
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.querySelectorAll(".slide");
+    let dots = document.querySelectorAll(".dot");
+
+    slides.forEach(slide => (slide.style.display = "none"));
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].classList.add("active");
+
+    setTimeout(showSlides, 5000); // Change slide every 5 seconds
+}
+
+function changeSlide(n) {
+    slideIndex += n;
+    showSlides();
+}
+
+function currentSlide(n) {
+    slideIndex = n;
+    showSlides();
+}

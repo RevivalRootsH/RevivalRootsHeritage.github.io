@@ -1,15 +1,24 @@
+/* Apply a gradient animation background */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    animation: rainbowBackground 10s infinite;
+    color: #333;
 }
 
+/* Header styles */
 header {
-    background: #333;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent for contrast */
     color: white;
     padding: 1rem 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Add a futuristic blur */
 }
 
 header nav ul {
@@ -27,6 +36,7 @@ header nav ul li a {
     text-decoration: none;
 }
 
+/* Slideshow styling */
 .slideshow-container {
     position: relative;
     max-width: 100%;
@@ -54,6 +64,7 @@ img {
     border-radius: 5px;
 }
 
+/* Dots for navigation */
 .dots-container {
     text-align: center;
     margin-top: 10px;
@@ -71,4 +82,20 @@ img {
 
 .dot.active {
     background: #717171;
+}
+
+/* Footer styling */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Animation for the rainbow gradient */
+@keyframes rainbowBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
